@@ -1,0 +1,11 @@
+build
+hdt-it
+libcds/include
+libcds/tutorial/ssa
+libhdt/src/bitsequence
+libhdt/src/huffman
+libhdt/src/libdcs
+libhdt/src/libdcs/fmindex
+libhdt/src/libdcs/hutucker
+libhdt/src/util
+libhdt/third
