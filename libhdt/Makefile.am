@@ -186,7 +186,8 @@ src/hdtpp/iterators/iteratorvpo.cpp \
 src/hdtpp/iterators/iteratorvto.cpp \
 src/hdtpp/iterators/iteratorvtv.cpp \
 src/hdtpp/iterators/iteratorspo.cpp \
-src/hdtpp/iterators/iteratorvvo.cpp 
+src/hdtpp/iterators/iteratorvvo.cpp \
+src/hdtpp/iterators/iteratorvvv.cpp 
 
 
 libhdt_la_CPPFLAGS = -std=c++11 -O3 -DNDEBUG -Wno-deprecated $(WARN_CFLAGS) -I$(top_builddir)/lib -I$(builddir)/include -I$(top_builddir)/libsdsl/include -L$(top_builddir)/libsdsl/lib -lsdsl -ldivsufsort -ldivsufsort64 \

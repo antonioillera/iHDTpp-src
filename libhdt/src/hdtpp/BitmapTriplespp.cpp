@@ -100,7 +100,7 @@ IteratorTripleID *BitmapTriplespp::search(TripleID &pattern){
     } else if (pattern.getPredicate() == 0){
         if (pattern.getSubject() == 0){
             if (pattern.getObject() == 0){
-                //return new iteratorvvv(this, pattern);
+                return new iteratorvvv(this, pattern);
             } else {
                 return new iteratorvvo(this, pattern);
             }

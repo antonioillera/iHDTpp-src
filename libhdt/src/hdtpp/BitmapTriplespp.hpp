@@ -194,6 +194,7 @@ public:
 
     void setnPredicados(unsigned int np){nPredicados=np;}
     void setnObjects(unsigned int no){nObjects=no;}
+    unsigned int getNPredicates(){return nPredicados;}
     unsigned int getNFamilies(){return families->getNumberOfFamilies();}
     unsigned int getIdRDFType(){return idRDFType;}
     void setIdRDFType(unsigned int t){idRDFType=t;}
@@ -256,7 +257,6 @@ private:
     unsigned int subject,predicate, object, family;
     unsigned int localSubject;
     bool more=true,moreT=true;
-    void updateOutput();
 
 public:
     iteratorsvv(BitmapTriplespp *triples, TripleID &pat);
@@ -318,7 +318,6 @@ private:
     IteratorTripleID *it=NULL;
     bool more=true;
     unsigned int subject,predicate, object, family;
-    void updateOutput();
 public:
     iteratorsvo(BitmapTriplespp *triples, TripleID &pat);
     bool hasNext();
@@ -353,6 +352,22 @@ private:
 
 public:
     iteratorvpv(BitmapTriplespp *triples, TripleID &pat);
+    bool hasNext();
+    TripleID *next();
+};
+
+class iteratorvvv : public IteratorTripleID {
+private:
+    BitmapTriplespp *triples;
+    TripleID pattern, returnTriple;
+
+    IteratorTripleID *it = NULL;
+
+    unsigned int subject,predicate=1, object, family;
+    bool more = true;
+
+public:
+    iteratorvvv(BitmapTriplespp *triples, TripleID &pat);
     bool hasNext();
     TripleID *next();
 };

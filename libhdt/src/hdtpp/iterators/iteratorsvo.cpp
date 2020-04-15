@@ -30,10 +30,6 @@ iteratorsvo::iteratorsvo(BitmapTriplespp *trip, TripleID &pat) :
     }
 }
 
-void iteratorsvo::updateOutput() {
-    returnTriple.setAll(subject,predicate,object);
-}
-
 bool iteratorsvo::hasNext()
 {
     return more;
