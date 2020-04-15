@@ -44,16 +44,16 @@ int main(int argc, char **argv) {
         hdtpp->constructMemoryStructures(true);
         string rdftypeLiteral = "http://www.w3.org/1999/02/22-rdf-syntax-ns#type";
         unsigned int idRDFType = hdtpp->getDictionary()->stringToId(rdftypeLiteral, PREDICATE);
-        ofstream out2 ("/home/antonio/vpo-hdtpp.txt");
-        /*
+        ofstream out2 ("/home/antonio/vvv-hdtpp.txt");
+
         TripleID tid;
         tid.setSubject(0);
-        tid.setPredicate(1);
-        tid.setObject(3);
+        tid.setPredicate(0);
+        tid.setObject(0);
         IteratorTripleID *it=hdtpp->getTriples()->search(tid);
         while (it->hasNext()) {
             TripleID *t = it->next();
-            cout<<t->getSubject()<<"-"<<t->getPredicate()<<"-"<<t->getObject()<<endl;
+            //cout<<t->getSubject()<<"-"<<t->getPredicate()<<"-"<<t->getObject()<<endl;
             std::stringstream ss;
             ss<<t->getSubject()<<"-"<<t->getPredicate()<<"-"<<t->getObject()<<endl;
             std::string text=ss.str();
@@ -62,7 +62,7 @@ int main(int argc, char **argv) {
         delete it;
         out2.close();
         delete hdtpp;
-        */
+        /*
 
 
         TripleID tid;
@@ -88,7 +88,6 @@ int main(int argc, char **argv) {
         out2.close();
         delete hdtpp;
 
-        /*
         ifstream fe("/home/antonio/triples-hdt.txt");
         size_t sid,pid,oid;
         char cadena[128];

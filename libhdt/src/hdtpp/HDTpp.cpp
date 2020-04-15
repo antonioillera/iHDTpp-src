@@ -443,16 +443,16 @@ void HDTpp::saveTriplesToHDTpp(std::ostream & output, ProgressListener *listener
 }
 
 
-void HDTpp::saveToRDF(RDFSerializer &serializer)
+void HDTpp::saveToRDF(RDFSerializer &serializer, ProgressListener *listener)
 {
-    try {
-        //serializer.serialize(triplespp, dictionary);
-    } catch (const char *e) {
-        throw e;
-    } catch (char *e) {
-        throw e;
-    }
-
+    TripleID tid;
+    tid.setSubject(0);
+    tid.setPredicate(0);
+    tid.setObject(0);
+    IteratorTripleID *it = this->getTriples()->search(tid);
+    TripleIDStringIterator* itStr = new TripleIDStringIterator(dictionary, it);
+    serializer.serialize(itStr, listener);
+    delete it;
 }
 
 void HDTpp::decode() {

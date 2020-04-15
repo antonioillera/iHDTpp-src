@@ -9,6 +9,10 @@
 #include "../util/fileUtil.hpp"
 #include "../util/StopWatch.hpp"
 
+
+#include "../hdt/TripleIDStringIterator.hpp"
+
+
 namespace hdt {
 
 class HDTpp
@@ -31,9 +35,8 @@ public:
     void saveDictionaryToHDTpp(std::ostream &out, ProgressListener *listener = NULL);
     void saveTriplesToHDTpp(std::ostream &out, ProgressListener *listener = NULL);
     void saveIndex(ProgressListener *listener = NULL);
+    void saveToRDF(RDFSerializer &serializer,  ProgressListener *listener= NULL);
 
-    void saveToRDF(std::ostream &out);
-    void saveToRDF(RDFSerializer &serializer);
     void decode();
     void extractPSO(const char *outputFile);
     unsigned int getidRdfType(){return idRdfType;}

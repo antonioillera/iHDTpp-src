@@ -1,4 +1,4 @@
-bin_PROGRAMS = hdt2rdf hdtInfo hdtSearch modifyHeader rdf2hdt replaceHeader searchHeader benchmark-hdt translatestring2id hdt2hdtpp testhdt testhdtpp
+bin_PROGRAMS = hdt2rdf hdtInfo hdtSearch modifyHeader rdf2hdt replaceHeader searchHeader benchmark-hdt translatestring2id hdt2hdtpp testhdt testhdtpp hdtpp2rdf
 
 AM_DEFAULT_SOURCE_EXT = .cpp
 
