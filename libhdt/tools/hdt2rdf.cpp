@@ -119,7 +119,7 @@ int main(int argc, char **argv) {
 	try {
 		ProgressListener* progress = showProgress ? new StdoutProgressListener() : NULL;
 		HDT *hdt = HDTManager::mapHDT(inputFile.c_str(), progress);
-
+        cout<<hdt->getTriples()->getNumberOfElements()<<" elements"<<endl;
 		if(outputFile!="-") {
 			RDFSerializer *serializer = RDFSerializer::getSerializer(outputFile.c_str(), notation);
 			hdt->saveToRDF(*serializer);

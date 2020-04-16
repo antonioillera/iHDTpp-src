@@ -445,15 +445,32 @@ void HDTpp::saveTriplesToHDTpp(std::ostream & output, ProgressListener *listener
 
 void HDTpp::saveToRDF(RDFSerializer &serializer, ProgressListener *listener)
 {
-    TripleID tid;
-    tid.setSubject(0);
-    tid.setPredicate(0);
-    tid.setObject(0);
-    IteratorTripleID *it = this->getTriples()->search(tid);
-    TripleIDStringIterator* itStr = new TripleIDStringIterator(dictionary, it);
-    serializer.serialize(itStr, listener);
+    IteratorTripleString *it = search("", "", "");
+    serializer.serialize(it, listener);
     delete it;
 }
+
+IteratorTripleString* HDTpp::search(const char* subject, const char* predicate, const char* object) {
+    TripleString ts(subject, predicate, object);
+    try {
+        TripleID tid;
+        dictionary->tripleStringtoTripleID(ts, tid);
+
+        if( (tid.getSubject()==0 && subject!=NULL && *subject!='\0') ||
+                (tid.getPredicate()==0 && predicate!=NULL && *predicate!='\0') ||
+                (tid.getObject()==0 && object!=NULL && *object!='\0') ) {
+            return new IteratorTripleString();
+        }
+
+        IteratorTripleID* iterID = this->getTriples()->search(tid);
+        TripleIDStringIterator* iterator = new TripleIDStringIterator(dictionary, iterID);
+        return iterator;
+    } catch (std::exception& e) {
+        cerr << "Exception: " << e.what() << endl;
+    }
+    return new IteratorTripleString();
+}
+
 
 void HDTpp::decode() {
     /*

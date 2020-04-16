@@ -36,7 +36,7 @@ public:
     void saveTriplesToHDTpp(std::ostream &out, ProgressListener *listener = NULL);
     void saveIndex(ProgressListener *listener = NULL);
     void saveToRDF(RDFSerializer &serializer,  ProgressListener *listener= NULL);
-
+    IteratorTripleString *search(const char *subject, const char *predicate, const char *object);
     void decode();
     void extractPSO(const char *outputFile);
     unsigned int getidRdfType(){return idRdfType;}
