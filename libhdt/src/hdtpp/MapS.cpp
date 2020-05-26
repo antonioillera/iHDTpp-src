@@ -40,6 +40,10 @@ void MapS::getSubjects(size_t familyID){
     sf->traverse(familyID-1);
 }
 
+size_t MapS::getNSubjects(size_t familyID){
+    return sf->getNElements(familyID-1);
+}
+
 bool MapS::hasMoreSubjects(){
     return sf->hasMoreElements();
 }

@@ -26,6 +26,10 @@ unsigned int ALCV::currentElement(){
     return *ptr0;
 }
 
+unsigned int ALCV::getNElements(size_t v){
+    return neigh(v)->size();
+}
+
 unsigned int ALCV::adj(size_t v, size_t u){
     size_t pos0, pos1;
     size_t tam = (*neigh(v)).size();

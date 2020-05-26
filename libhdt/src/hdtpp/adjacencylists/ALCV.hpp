@@ -26,7 +26,9 @@ public:
     bool hasMoreElements();
     unsigned int nextElement();
     unsigned int currentElement();
+    unsigned int getNElements(size_t v);
     unsigned int sizeBytes();
+
 
 };
 

@@ -72,6 +72,10 @@ size_t MapO::getCurrentPosition(){
     return adjacencylist->getCurrentPosition();
 }
 
+size_t MapO::getNObjects(size_t predicateID){
+    return op->getNElements(predicateID-1);
+}
+
 unsigned int MapO::sizeBytes(){
     unsigned int size = op->sizeBytes();
     if (adjacencylist) size += adjacencylist->sizeBytes();

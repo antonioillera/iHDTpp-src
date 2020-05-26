@@ -25,6 +25,7 @@ public:
     void getSubjects(size_t familyID);
     bool hasMoreSubjects();
     size_t nextSubject();
+    size_t getNSubjects(size_t familyID);
     unsigned int sizeBytes();
 };
 
@@ -44,6 +45,7 @@ public:
     size_t nextPredicate();
     size_t getCurrentPosition();
     size_t POrelationship(size_t predicateID, size_t objectID);
+    size_t getNObjects(size_t predicateID);
     unsigned int sizeBytes();
 };
 
@@ -195,6 +197,8 @@ public:
     void setnPredicados(unsigned int np){nPredicados=np;}
     void setnObjects(unsigned int no){nObjects=no;}
     unsigned int getNPredicates(){return nPredicados;}
+    unsigned int getNObjects(size_t predicateID){return mapO->getNObjects(predicateID);}
+    unsigned int getNSubjects(size_t familyID){return mapS->getNSubjects(familyID);}
     unsigned int getNFamilies(){return families->getNumberOfFamilies();}
     unsigned int getIdRDFType(){return idRDFType;}
     void setIdRDFType(unsigned int t){idRDFType=t;}
