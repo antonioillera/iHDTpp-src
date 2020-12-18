@@ -43,6 +43,7 @@ void ALT::traverse() {
     ptrS0 = 1;
     ptrS1 = sequence->size()-1;
     ptrB0 = 0;
+    cont = 0;
     if (hasMoreElements()){
         do {
             if (getBit(ptrB0)) cont++;
