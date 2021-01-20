@@ -26,14 +26,15 @@ iObjects::iObjects(Ps *localobjs, MapO *mapO, size_t idRDFType, Types *types, si
 
     types->getTypes();
     while (types->hasMoreTypes()){
+        size_t f = types->getCurrentFamily();
         size_t t = types->nextType();
         map<unsigned int,int_vector<>>::const_iterator it = mapTypes.find(t);
         if (it == mapTypes.end())
-            mapTypes.insert(std::pair<unsigned int, int_vector<>>(t,int_vector<>(1,types->getCurrentFamily())));
+            mapTypes.insert(std::pair<unsigned int, int_vector<>>(t,int_vector<>(1,f)));
         else{
             size_t s = mapTypes[t].size();
             mapTypes[t].resize(s+1);
-            mapTypes[t][s]=types->getCurrentFamily();
+            mapTypes[t][s]=f;
         }
     }
 
