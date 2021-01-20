@@ -56,8 +56,6 @@ iObjects::iObjects(Ps *localobjs, MapO *mapO, size_t idRDFType, Types *types, si
     idxTypes.families = new AL(SeqTypesFamilies,BmTypesFamilies);
     idxTypes.families->select1support();
     idxTypes.isType_rank1 = bit_vector::rank_1_type(idxTypes.isType);
-    mapTypes.clear();
-    map<unsigned int, int_vector<>>().swap(mapTypes);
 
     for (size_t p=1; p<=localobjs->getNumberOfPredicates(); p++){
        if (p!=idRDFType){
